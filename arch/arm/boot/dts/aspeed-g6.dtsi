@@ -507,6 +507,14 @@
 				status = "disabled";
 			};
 
+
+			i3c: bus@1e7a0000 {
+				compatible = "simple-bus";
+				#address-cells = <1>;
+				#size-cells = <1>;
+				ranges = <0 0x1e7a0000 0x8000>;
+			};
+
 			lpc: lpc@1e789000 {
 				compatible = "aspeed,ast2600-lpc-v2", "simple-mfd", "syscon";
 				reg = <0x1e789000 0x1000>;
@@ -965,6 +973,15 @@
 		bus-frequency = <100000>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_i2c16_default>;
+		status = "disabled";
+	};
+};
+
+&i3c {
+	i3cglobal: i3cg@0 {
+		reg = <0x0 0x1000>;
+		compatible = "aspeed,ast2600-i3c-global";
+		resets = <&syscon ASPEED_RESET_I3C_DMA>;
 		status = "disabled";
 	};
 };
