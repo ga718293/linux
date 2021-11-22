@@ -322,7 +322,6 @@ static int i3cdev_attach(struct device *dev, void *dummy)
 	}
 	pr_debug("i3cdev: I3C device [%s] registered as minor %d\n",
 		 dev_name(&i3c->dev), i3cdev->id);
-printk(KERN_ERR "[ALAN] i3cdev: I3C device [%s] registered as minor %d\n", dev_name(&i3c->dev), i3cdev->id);
 	return 0;
 
 error:
@@ -352,7 +351,6 @@ static int i3cdev_detach(struct device *dev, void *dummy)
 	put_i3cdev(i3cdev);
 
 	pr_debug("i3cdev: device [%s] unregistered\n", dev_name(&i3c->dev));
-
 	return 0;
 }
 
