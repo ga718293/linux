@@ -352,7 +352,7 @@ static int i3cdev_detach(struct device *dev, void *dummy)
 	put_i3cdev(i3cdev);
 
 	pr_debug("i3cdev: device [%s] unregistered\n", dev_name(&i3c->dev));
-printk(KERN_ERR "[ALAN] i3cdev: device [%s] unregistered\n", dev_name(&i3c->dev));
+
 	return 0;
 }
 
@@ -401,7 +401,7 @@ static int __init i3cdev_init(void)
 
 	/* Bind to already existing device without driver right away */
 	i3c_for_each_dev(NULL, i3cdev_attach);
-printk(KERN_ERR "[ALAN]  i3cdev_init: done\n");
+
 	return 0;
 
 out_unreg_class:
