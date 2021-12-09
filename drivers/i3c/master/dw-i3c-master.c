@@ -1154,10 +1154,6 @@ static int dw_i3c_probe(struct platform_device *pdev)
 	master->maxdevs = ret >> 16;
 	master->free_pos = GENMASK(master->maxdevs - 1, 0);
 
-	ret = i3c_master_register(&master->base, &pdev->dev,
-				  &dw_mipi_i3c_ops, false);
-	if (ret)
-		goto err_assert_rst;
 
 	writel(INTR_ALL, master->regs + INTR_STATUS);
 	irq = platform_get_irq(pdev, 0);
@@ -1166,7 +1162,12 @@ static int dw_i3c_probe(struct platform_device *pdev)
 			       dev_name(&pdev->dev), master);
 	if (ret)
 		goto err_assert_rst;
-	
+
+	ret = i3c_master_register(&master->base, &pdev->dev,
+				  &dw_mipi_i3c_ops, false);
+	if (ret)
+		goto err_assert_rst;
+
 	return 0;
 
 err_assert_rst:
