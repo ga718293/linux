@@ -1,5 +1,16 @@
+Author:  Alan Huang <ga718293@gmail.com>
+Description:  OpenBMC Kernel mirror for device driver development.
+License:  GPL v2
+
+
 Linux kernel
 ============
+This is the OpenBMC Kernel mirror, that can be used by anyone.
+I will maintain some hardware device drivers for component on 
+lastest server machine.
+
+You can pickup the code as you needed and distribution it on
+your platform.
 
 There are several guides for kernel developers and users. These guides can
 be rendered in a number of formats, like HTML and PDF. Please read
@@ -9,10 +20,3 @@ In order to build the documentation, use ``make htmldocs`` or
 ``make pdfdocs``.  The formatted documentation can also be read online at:
 
     https://www.kernel.org/doc/html/latest/
-
-There are various text files in the Documentation/ subdirectory,
-several of them using the Restructured Text markup notation.
-
-Please read the Documentation/process/changes.rst file, as it contains the
-requirements for building and running the kernel, and information about
-the problems which may result by upgrading your kernel.
